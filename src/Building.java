@@ -7,6 +7,71 @@ public final class Building {
 
     private Building() {}
 
+    public FloorState GetCurrentFloor() {
+        return floors.GetFloors().get(lift.getCurrentFloor());
+    }
+
+    public Queue GetCurrentFloorRequests() {
+        return GetCurrentFloor().GetFloorRequests();
+    }
+
+    public Queue Admit(int NumberOfPeople) {
+        if (NumberOfPeople <= 0) {
+            throw new IllegalArgumentException("Number of people must be greater than 0");
+        }
+        if (NumberOfPeople > lift.getCapacity()) {
+            throw new IllegalArgumentException("Number of people must be less than or equal capacity");
+        }
+
+        Queue Requests = GetCurrentFloorRequests();
+
+        lift.enqueueRequest(Requests.dequeue(NumberOfPeople));
+
+        return Requests;
+    }
+
+    // checks if the lift is at the highest
+    public boolean IsLiftAtTop() {
+        return floors.GetFloors().size() == (lift.currentFloor - 1);
+    }
+
+    // checks if the lift is at the bottom
+    public boolean IsLiftAtBottom() {
+        return lift.currentFloor == 0;
+    }
+
+    // checks if the lift is at top or bottom
+    public boolean CanLiftContinue() {
+        return IsLiftAtTop() || IsLiftAtBottom();
+    }
+
+    // moves the elevator up one space
+    public void MoveLiftUp() {
+        if (IsLiftAtTop()) {
+            return;
+        }
+        lift.currentFloor++;
+    }
+
+    public void MoveLiftDown() {
+        if (IsLiftAtBottom()) {
+            return;
+        }
+        lift.currentFloor--;
+    }
+
+    // move lift one space in current direction of travel
+    public void LiftContinue() {
+        if (CanLiftContinue()) {
+            lift.goingUp = !lift.goingUp;
+        }
+        if (lift.goingUp) {
+            lift.currentFloor = lift.currentFloor + 1;
+        } else {
+            lift.currentFloor = lift.currentFloor - 1;
+        }
+    }
+
     //Getter methods to access lift and floors
     public LiftState getLift() {
         return lift;
@@ -54,15 +119,6 @@ public final class Building {
         building.floors = new FloorsState(numFloors, requestsMap);
 
         return building;
-    }
-
-    //Getter methods to retrieve floors & lift for debugging
-    public FloorsState getFloorsState() {
-        return floors;
-    }
-
-    public LiftState getLiftState() {
-        return lift;
     }
 
     //for debugging

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // Queue class: a simple FIFO queue implemented with a linked list.
 // Used for managing floor requests in the elevator system.
 public class Queue {
@@ -43,12 +46,60 @@ public class Queue {
         return result;
     }
 
+    public List<Integer> dequeue(int n) {
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            result.add(dequeue());
+        }
+
+        return result;
+    }
+
+    public List<Integer> dequeueAll() {
+        List<Integer> result = new ArrayList<>();
+
+        while (this.isEmpty()) {
+            result.add(dequeue());
+        }
+
+        return result;
+    }
+
+    public void enqueue(List<Integer> requests) {
+        for (Integer request : requests) {
+            enqueue(request);
+        }
+    }
+
     // Look at the front floor request without removing it.
     public int peek() {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty");
         }
         return front.data;
+    }
+
+    public int peek(int position) {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+
+        Node Previous = this.front;
+
+        for (int i = 0; i < position; i++) {
+            Previous = Previous.next;
+        }
+
+        return Previous.data;
+    }
+
+    public List<Integer> peekAll() {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < this.size(); i++) {
+            result.add(peek(i));
+        }
+        return result;
     }
 
     // Return the number of elements in the queue.
@@ -67,6 +118,6 @@ public class Queue {
             }
             curr = curr.next;
         }
-        return "Queue: " + sb.toString();
+        return "Queue: " + sb;
     }
 }
