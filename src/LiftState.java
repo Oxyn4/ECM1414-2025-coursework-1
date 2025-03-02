@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 // Represents a Lift with different variables denoting properties
@@ -6,6 +7,21 @@ public class LiftState {
     int capacity;
     int currentFloor; //tracks current floor
     boolean goingUp; //tracks direction
+
+    // people in the elevator
+    private Queue currentlyHandling = new Queue();
+
+    public void enqueueRequest(int Request) {
+        currentlyHandling.enqueue(Request);
+    }
+
+    public void enqueueRequest(List<Integer> requests) {
+        currentlyHandling.enqueue(requests);
+    }
+
+    public int dequeueRequest() {
+        return currentlyHandling.dequeue();
+    }
 
     // private default constructor
     // stop mistakes by marking private bad things could happen if this object is default initialised
