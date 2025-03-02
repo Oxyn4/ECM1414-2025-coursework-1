@@ -37,12 +37,12 @@ class ElevatorApp {
         buildingRandomParameters.floorParameters = floorsRandomParameters;
         buildingRandomParameters.liftParameters = liftRandomParameters;
 
-        System.out.println("🚀 Generating Random Building...");
+        System.out.println("Generating Random Building...");
 
         // Generate a random building configuration
         Building building = Building.FromRandom(buildingRandomParameters);
 
-        System.out.println("✅ Initial Random Building State:");
+        System.out.println("Initial Random Building State:");
         System.out.println(building);
 
         // Run LOOK algorithm on the random building
