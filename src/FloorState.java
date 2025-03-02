@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.List;
 import java.util.Random;
 
@@ -8,24 +5,24 @@ import java.util.Random;
 public final class FloorState {
     //each object represents a number of people
     //the value of each object represents the floor number that person wants to travel to
-    private final Queue<Integer> FloorRequests = new LinkedList<>();
+    private Queue FloorRequests = new Queue();
 
     //default constructor - marked private to control how this class is initialized
     private FloorState() {}
 
     //constructor to initialise floor requests from a list from a file
     public FloorState(List<Integer> requests) {
-        FloorRequests.addAll(requests);
+        FloorRequests.enqueue(requests);
     }
 
     //getter for floor requests
-    public Queue<Integer> GetFloorRequests() {
+    public Queue GetFloorRequests() {
         return FloorRequests;
     }
 
     // adds a floor request
     public void AddFloorRequest(int floor) {
-        FloorRequests.add(floor);
+        FloorRequests.enqueue(floor);
     }
 
     //helper function to generate a floor with random requests 
@@ -49,11 +46,10 @@ public final class FloorState {
     @Override
     public String toString() {
         StringBuilder ret = new StringBuilder("Floor Requests: {");
-        Queue<Integer> FloorRequestsCopy = new LinkedList<>(FloorRequests);
-        int size = FloorRequestsCopy.size();
+        int size = FloorRequests.size();
 
         for (int i = 0; i < size; i++) {
-            ret.append(FloorRequestsCopy.remove());
+            ret.append(FloorRequests.peek(i));
             if (i != size - 1) {
                 ret.append(", ");
             }
