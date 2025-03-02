@@ -1,4 +1,3 @@
-
 // generic interface for algorithms
 public abstract class Algorithm {
     Building building;
@@ -7,7 +6,7 @@ public abstract class Algorithm {
         this.building = building;
     }
 
-    public abstract Building NextStep();
+    public abstract Building NextStep() throws InvalidBuildingConfiguration;
 }
 
 

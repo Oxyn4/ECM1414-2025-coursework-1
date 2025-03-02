@@ -21,8 +21,9 @@ class ElevatorApp {
             }
         } catch (IOException e) {
             System.out.println("Error loading file: " + e.getMessage());
+        } catch (InvalidBuildingConfiguration e) {
+            throw new RuntimeException(e);
         }
-        
 
         // generate a random building config (uncomment to test randomness)
         /*
