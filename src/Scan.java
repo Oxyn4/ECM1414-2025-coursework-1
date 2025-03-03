@@ -16,11 +16,17 @@ public class Scan extends Algorithm {
         Building building = super.building;
 
         // move the lift in the current direction of travel until we find a floor with requests
-        while (building.GetCurrentFloorRequests().isEmpty()) {
+        if (building.GetCurrentFloorRequests().isEmpty()) {
             building.LiftContinue();
+            return building;
         }
 
         // we are now on a floor with requests
+        // let people who want to get off and let people who want to get in
+        building.Stop();
+
+        // move to next floor
+        building.LiftContinue();
 
         return super.building;
     }

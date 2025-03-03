@@ -15,7 +15,7 @@ public final class Building {
         return GetCurrentFloor().GetFloorRequests();
     }
 
-    public Queue Admit(int NumberOfPeople) {
+    private Queue Admit(int NumberOfPeople) {
         if (NumberOfPeople <= 0) {
             throw new IllegalArgumentException("Number of people must be greater than 0");
         }
@@ -25,9 +25,26 @@ public final class Building {
 
         Queue Requests = GetCurrentFloorRequests();
 
-        lift.enqueueRequest(Requests.dequeue(NumberOfPeople));
+        lift.AddRequest(Requests.dequeue(NumberOfPeople));
 
         return Requests;
+    }
+
+    private Queue AdmitMax() {
+        Queue Requests = GetCurrentFloorRequests();
+
+        lift.AddRequest(Requests.dequeue(lift.getCapacity() - lift.Occupancy()));
+
+        return Requests;
+    }
+
+    // stops at current floor
+    // lets in max
+    // lets out people wanting to go the floor
+    public void Stop() {
+        // people who want to get out
+        lift.RemoveAllRequestsForFloor(lift.getCurrentFloor());
+        this.AdmitMax();
     }
 
     // checks if the lift is at the highest

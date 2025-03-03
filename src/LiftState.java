@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -9,18 +11,30 @@ public class LiftState {
     boolean goingUp; //tracks direction
 
     // people in the elevator
-    private Queue currentlyHandling = new Queue();
+    private ArrayList<Integer> currentlyHandling = new ArrayList<>();
 
-    public void enqueueRequest(int Request) {
-        currentlyHandling.enqueue(Request);
+    public void AddRequest(int Request) {
+        currentlyHandling.add(Request);
     }
 
-    public void enqueueRequest(List<Integer> requests) {
-        currentlyHandling.enqueue(requests);
+    public void AddRequest(List<Integer> requests) {
+        currentlyHandling.addAll(requests);
     }
 
-    public int dequeueRequest() {
-        return currentlyHandling.dequeue();
+    public void RemoveRequest(Integer Request) {
+        currentlyHandling.remove(Request);
+    }
+
+    public void RemoveAllRequestsForFloor(Integer floor) {
+        currentlyHandling.removeAll(Collections.singleton(floor));
+    }
+
+    public int RemoveLastRequest() {
+        return currentlyHandling.removeLast();
+    }
+
+    public int Occupancy() {
+        return this.currentlyHandling.size();
     }
 
     // private default constructor
