@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Basic queue implementation for the elevator project
- * Written by Group 7
+ * Basic queue implementation for the elevator control system.
+ * Used to manage floor requests in the simulation.
  */
 public class Queue {
     // store all the requests (floor numbers)
