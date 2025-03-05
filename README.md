@@ -85,4 +85,4 @@ The multi-elevator system coordinates multiple elevators through the `RequestDis
 
 ## Team Members:YanBin Huang,Sam Harries,Logan Westwood,Jacob Evans,Xuanjin Qu.
 
-*This project is submitted as part of ECM 1414 course, University of Exeter, 2025*
+*This project is submitted as part of ECM 1414 coursework, University of Exeter, 2025*
