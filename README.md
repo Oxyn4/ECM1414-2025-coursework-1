@@ -83,6 +83,7 @@ The multi-elevator system coordinates multiple elevators through the `RequestDis
 3. Each elevator uses a separate LOOK algorithm to handle assigned requests
 4. Periodically reassesses assignments to adapt to system changes
 
-## Team Members:YanBin Huang,Sam Harries,Logan Westwood,Jacob Evans,Xuanjin Qu.
+## Team Members:
+YanBin Huang,Sam Harries,Logan Westwood,Jacob Evans,Xuanjin Qu.
 
 *This project is submitted as part of ECM 1414 course, University of Exeter, 2025*
