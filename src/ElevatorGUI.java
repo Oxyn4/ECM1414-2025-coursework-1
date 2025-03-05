@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Elevator GUI
- * @author Student Team
+ * @author YanBin Huang
  */
 public class ElevatorGUI extends JFrame {
     // variables for the GUI components
