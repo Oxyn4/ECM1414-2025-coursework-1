@@ -185,3 +185,4 @@ public class AlgorithmTest {
             return Building.FromFile("input.txt");
         }
     }
+}
