@@ -30,7 +30,7 @@ public class LiftState {
     }
 
     public int RemoveLastRequest() {
-        return currentlyHandling.removeLast();
+        return currentlyHandling.remove(currentlyHandling.size() - 1);
     }
 
     public int Occupancy() {
