@@ -1,0 +1,10 @@
+Scenario,Algorithm,TotalSteps,ElevatorMoves,AvgWaitTime,MaxWaitTime
+Small,SCAN,14,12,2.6,4
+Small,LOOK,11,10,2.2,4
+Small,MYLIFT,9,8,1.8,3
+Medium,SCAN,28,22,4.3,7
+Medium,LOOK,24,19,4.1,6
+Medium,MYLIFT,18,15,3.2,5
+Large,SCAN,62,47,7.6,12
+Large,LOOK,54,40,6.9,11
+Large,MYLIFT,45,34,5.8,10
