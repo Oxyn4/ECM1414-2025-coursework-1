@@ -3,7 +3,7 @@ import java.io.IOException;
 /**
  * ScenarioTestRunner:
  * Runs SCAN, LOOK, and MYLIFT on multiple .txt scenario files.
- * Shows pass/fail style results similar to your existing TestRunner pattern.
+ * Shows pass/fail style results similar to the existing TestRunner pattern.
  */
 public class ScenarioTestRunner {
 
