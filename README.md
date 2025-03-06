@@ -62,6 +62,13 @@ This project implements an elevator control system that simulates elevator opera
 - `MultiLiftLook.java` - Multi-elevator LOOK algorithm implementation
 - `MultiLiftApp.java` - Multi-elevator application entry point
 
+### Testing Framework:
+- `BuildingTest.java` - Tests for building operations
+- `QueueTest.java` - Tests for queue data structure
+- `AlgorithmTest.java` - Tests for scheduling algorithms
+- `TestRunner.java` - Test execution framework
+- `test_input.txt` - Test building configuration
+
 ### SCAN Algorithm
 The elevator moves in one direction and only changes direction when it reaches the top or bottom floors. While moving up, it sequentially services each floor's up requests; while moving down, it sequentially services each floor's down requests.
 
